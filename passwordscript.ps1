@@ -1,6 +1,6 @@
-﻿Import-Module ActiveDirectory
-Start-Process PowerShell -Credential "DOMAIN\a.olumoh" -NoNewWindow -ArgumentList "-File C:\scripts\reset_password.ps1"
+Import-Module ActiveDirectory
 
+#File location
 $ResetPassword = Import-Csv "C:\Users\a.olumoh\Desktop\Scripts\Users.txt"
 $CompletedLog = "C:\Users\a.olumoh\Desktop\Scripts\result.txt"
 $ErrorLog = "C:\Users\a.olumoh\Desktop\Scripts\errorlog.txt"
@@ -24,4 +24,4 @@ foreach ($User in $ResetPassword) {
 }
 
 Get-Date | Out-File -Append -FilePath $CompletedLog
-Write-Host "Password reset process completed."
+Write-Host "Script completed."

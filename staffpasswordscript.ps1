@@ -1,11 +1,12 @@
 ﻿Import-Module ActiveDirectory
 
+#File location
 $ResetPassword = Import-Csv "C:\Users\a.olumoh\Desktop\Scripts\Users.txt"
 $CompletedLog = "C:\Users\a.olumoh\Desktop\Scripts\result.txt"
 $ErrorLog = "C:\Users\a.olumoh\Desktop\Scripts\errorlog.txt"
 
 
-#Password
+#Password hardcoded
 $NewPassword = ConvertTo-SecureString "Welcome25" -AsPlainText -Force
 
 #Ensures log files are cleared
