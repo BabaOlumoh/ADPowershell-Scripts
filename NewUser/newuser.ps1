@@ -32,11 +32,12 @@ foreach ($User in $NewUser){
         $Department = $User.department
         $Company = $User.company
         $OU = $User.ou
-        $Password = "$Prefix$randomPart"
+        $JoinChars = "$Prefix$RandomPart"
+        $Password = ConvertTo-SecureString -AsPlainText $JoinChars -Force
 
         if (Get-ADUser -F {SamAccountName -eq $UserName})
         {
-            Write-Warning "An account with username $Username already exists" | Out-File -Append -FilePath $ErrorLog
+            Write-Warning "An account with username $UserName already exists" | Out-File -Append -FilePath $ErrorLog
         }
         else {
             New-ADUser `
