@@ -1,10 +1,9 @@
-param(
+  param(
     [int]$Length = 5,             
     [string]$Prefix = "MIBTempPass" 
 )
 
 Import-Module ActiveDirectory
-
 
 #File location
 $NewUser = Import-Csv "C:\Users\a.olumoh\Desktop\Scripts\Users.txt"
@@ -41,7 +40,6 @@ foreach ($User in $NewUser){
         }
         else {
             New-ADUser `
-                
                 -GivenName $FirstName `
                 -Surname $LastName `
                 -DisplayName $DisplayName `
